@@ -3,7 +3,8 @@ const fs = require('fs');
 const path = require('path');
 
 // Configuration
-const LIST_NAME = `abuseipdb-s100-1d`;
+const TIMEOUT = 1;
+const LIST_NAME = `abuseipdb-s100-${TIMEOUT}d`;
 const OUTPUT_DIR = 'build';
 const OUTPUT_FILE = path.join(OUTPUT_DIR, `${LIST_NAME}.rsc`);
 const SOURCE_URL = `https://raw.githubusercontent.com/borestad/blocklist-abuseipdb/refs/heads/main/${LIST_NAME}.ipv4`;
@@ -83,7 +84,7 @@ function generateRouterOSScript(ips) {
     // Close the array and add foreach loop-products
     script += '};\n';
     script += `:foreach ip in=$ips do={\n`;
-    script += `\t/ip firewall address-list add list=${LIST_NAME} address=$ip\n`;
+    script += `\t/ip firewall address-list add list=${LIST_NAME} address=$ip dynamic=yes timeout=${TIMEOUT}d\n`;
     script += '}\n';
 
     return script;
