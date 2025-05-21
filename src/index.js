@@ -86,6 +86,7 @@ function generateRouterOSScript(ips) {
     script += `:foreach ip in=$ips do={\n`;
     script += `\t/ip firewall address-list add list=${LIST_NAME} address=$ip dynamic=yes timeout=${TIMEOUT}d\n`;
     script += '}\n';
+    script += `:set ips\n`;
 
     return script;
 }
