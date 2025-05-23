@@ -22,7 +22,7 @@ Note: Fetch onto `usb1-disk` (if applicable) could help minimizing NAND wearing 
 
 ```routeros
 /system scheduler
-add comment="cron: update abuseipdb-s100-1d everyday" interval=1d name=abuseipdb-s100-1d on-event=":execute abuseipdb-s100-1d" policy=read,write,policy,test start-date=2025-05-21 start-time=06:00:00
+add comment="cron: update abuseipdb-s100-1d everyday" interval=1d name=abuseipdb-s100-1d on-event="/system script run abuseipdb-s100-1d" policy=ftp,read,write,policy,test start-date=2025-05-21 start-time=06:00:00
 ```
 
 ## firewall
