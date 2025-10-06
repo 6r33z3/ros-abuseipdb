@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import os
 import requests
 from ipaddress import IPv4Network, collapse_addresses, ip_network
 from itertools import chain
@@ -7,7 +8,7 @@ from pathlib import Path
 
 addresses = dict[IPv4Network, str]()
 
-TIMEOUT = 1
+TIMEOUT = os.getenv('TIMEOUT', '1')
 BASE_DIR = 'data'
 BASE_FILENAME = f'abuseipdb-s100-{TIMEOUT}d'
 _INPUTFILE = Path(BASE_DIR) / f'{BASE_FILENAME}.ipv4'

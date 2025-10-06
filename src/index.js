@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 // Configuration
-const TIMEOUT = 1;
+const TIMEOUT = process.env.TIMEOUT || '1';
 const LIST_NAME = `abuseipdb-s100-${TIMEOUT}d`;
 const OUTPUT_DIR = 'build';
 const INPUT_FILE = path.join('data', `${LIST_NAME}-collapsed.ipv4`);
