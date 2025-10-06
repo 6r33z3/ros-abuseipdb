@@ -7,14 +7,14 @@ Tested on RB5009UPr+S+ (7.19.6). Each update cycle cost about 1m 15s.
 ## script
 
 ```routeros
-/tool fetch url="https://raw.githubusercontent.com/6r33z3/ros-abuseipdb/refs/heads/main/build/abuseipdb-s100-1d.rsc" dst-path=abuseipdb-s100-1d.rsc mode=https
+/tool fetch url="https://raw.githubusercontent.com/6r33z3/ros-abuseipdb/refs/heads/build/abuseipdb-s100-1d.rsc" dst-path=abuseipdb-s100-1d.rsc mode=https
 /import file-name=abuseipdb-s100-1d.rsc
 ```
 
 Note: Fetch onto `usb1-disk` (if applicable) could help minimizing NAND wearing , e.g.:
 
 ```routeros
-/tool fetch url="https://raw.githubusercontent.com/6r33z3/ros-abuseipdb/refs/heads/main/build/abuseipdb-s100-1d.rsc" dst-path=usb1-disk/abuseipdb/abuseipdb-s100-1d.rsc mode=https
+/tool fetch url="https://raw.githubusercontent.com/6r33z3/ros-abuseipdb/refs/heads/build/abuseipdb-s100-1d.rsc" dst-path=usb1-disk/abuseipdb/abuseipdb-s100-1d.rsc mode=https
 /import file-name=usb1-disk/abuseipdb/abuseipdb-s100-1d.rsc
 ```
 
