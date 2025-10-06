@@ -1,3 +1,5 @@
+# Credit: https://github.com/borestad/blocklist-abuseipdb/issues/9#issue-2813135678
+
 #!/usr/bin/env python3
 
 import os
