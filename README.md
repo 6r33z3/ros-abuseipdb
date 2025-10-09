@@ -1,5 +1,7 @@
 # ros-abuseipdb
 
+![build](https://github.com/6r33z3/ros-abuseipdb/actions/workflows/build.yml/badge.svg)
+
 Converts the upstream blacklist [abuseipdb-s100-1d](https://github.com/borestad/blocklist-abuseipdb/blob/main/abuseipdb-s100-1d.ipv4) from [borestad/blocklist-abuseipdb](https://github.com/borestad/blocklist-abuseipdb) as dynamic address lists for blocking in RouterOS with daily updates.
 
 Tested on RB5009UPr+S+ (7.19.6). Each update cycle cost about 1m 15s.
