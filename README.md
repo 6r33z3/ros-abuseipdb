@@ -4,20 +4,19 @@
 
 Converts the upstream blacklist [abuseipdb-s100-1d](https://github.com/borestad/blocklist-abuseipdb/blob/main/abuseipdb-s100-1d.ipv4) from [borestad/blocklist-abuseipdb](https://github.com/borestad/blocklist-abuseipdb) as dynamic address lists for blocking in RouterOS with daily updates.
 
-Tested on RB5009UPr+S+ (7.19.6). Each update cycle cost about 1m 15s.
+Tested on RB5009UPr+S+ (7.20.8). Each update cycle cost about 1m 15s.
 
 ## script
 
+Note: Fetch onto `tmpfs` could help minimizing NAND wearing , e.g.:
+
 ```routeros
-/tool fetch url="https://raw.githubusercontent.com/6r33z3/ros-abuseipdb/refs/heads/build/abuseipdb-s100-1d.rsc" dst-path=abuseipdb-s100-1d.rsc mode=https
-/import file-name=abuseipdb-s100-1d.rsc
+/disk add type=tmpfs tmpfs-max-size=16M slot=tmpfs
 ```
 
-Note: Fetch onto `usb1-disk` (if applicable) could help minimizing NAND wearing , e.g.:
-
 ```routeros
-/tool fetch url="https://raw.githubusercontent.com/6r33z3/ros-abuseipdb/refs/heads/build/abuseipdb-s100-1d.rsc" dst-path=usb1-disk/abuseipdb/abuseipdb-s100-1d.rsc mode=https
-/import file-name=usb1-disk/abuseipdb/abuseipdb-s100-1d.rsc
+/tool fetch url="https://raw.githubusercontent.com/6r33z3/ros-abuseipdb/refs/heads/build/abuseipdb-s100-1d.rsc" dst-path=tmpfs/abuseipdb/abuseipdb-s100-1d.rsc mode=https
+/import file-name=tmpfs/abuseipdb/abuseipdb-s100-1d.rsc
 ```
 
 ## scheduler
